@@ -13,14 +13,14 @@ type Config struct {
 	IP   string
 }
 
-const configFileName = "config.json"
+const ConfigFileName = "config.json"
 
 var configInstance *Config
 var once sync.Once
 
 func GetConfig() *Config {
 	once.Do(func() {
-		data, err := os.ReadFile(configFileName)
+		data, err := os.ReadFile(ConfigFileName)
 		if err != nil {
 			panic(err)
 		}
