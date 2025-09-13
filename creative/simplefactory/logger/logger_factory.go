@@ -13,9 +13,9 @@ const (
 func GetLogger(loggerType string, filePath string, level int) (Logger, error) {
 	switch loggerType {
 	case CONSOLE:
-		return NewConsoleLogger(level), nil
+		return newConsoleLogger(level), nil
 	case FILE:
-		return NewFileLogger(filePath, level)
+		return newFileLogger(filePath, level)
 	}
 	return nil, errors.New(fmt.Sprintf("logger type %s not support", loggerType))
 }
